@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE GENERATOR</title>
+    <style>
+        body,html{
+            background-color: rgb(237, 186, 194);
+            /* align-items: center;
+            justify-content: center; */
+            height:50%;
+            padding: 30px 30px;
+            margin:40px 40px;
+        }
+        .container{
+            align-items: center;
+            display:flex;
+            justify-content: center;
+            background-color: cyan;
+            height:300%;
+            border-radius:20px;
+            flex-direction: column;
+            
+        }
+        .input{
+            justify-content: center;
+        }
+        button:hover{
+            background-color: purple;
+            scale: 1.05;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="input">
+            <p>QR CODE GENERATOR</p>
+            <input type="text" id="inputtext" placeholder="ENTER URL"><br><br>
+            <button onclick="generate()">GENERATE QR</button><br><br>
+        </div>
+        <div class="qr">
+            <div class="img">
+                
+                <img src="" id="imgqr"><br><br>
+            </div>
+                
+        </div>
+    </div>
+    <script>
+            let inputtext=document.getElementById("inputtext");
+            let imgsrc=document.getElementById("imgqr");
+            function generate(){
+                imgsrc.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+inputtext.value;
+            }
+    </script>
+</body>
+</html>
